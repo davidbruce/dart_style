@@ -104,7 +104,7 @@ final class ChainPiece extends Piece {
       {required bool cascade,
       int leadingProperties = 0,
       int blockCallIndex = -1,
-      int indent = Indent.expression,
+      int indent = 4,
       required bool allowSplitInTarget})
       : _leadingProperties = leadingProperties,
         _blockCallIndex = blockCallIndex,

@@ -336,7 +336,7 @@ final class ChunkBuilder {
   /// Starts a new span with [cost].
   ///
   /// Each call to this needs a later matching call to [endSpan].
-  void startSpan([int cost = Cost.normal]) {
+  void startSpan([int cost = 1]) {
     _openSpans.add(OpenSpan(_chunks.length, cost));
   }
 

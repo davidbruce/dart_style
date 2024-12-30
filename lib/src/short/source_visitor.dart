@@ -4049,7 +4049,7 @@ final class SourceVisitor extends ThrowingAstVisitor {
   Chunk zeroSplit() => builder.split();
 
   /// Writes a single space split with its own rule.
-  Rule soloSplit([int cost = Cost.normal]) {
+  Rule soloSplit([int cost = 1]) {
     var rule = Rule(cost);
     builder.startRule(rule);
     split();

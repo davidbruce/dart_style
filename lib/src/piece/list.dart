@@ -456,6 +456,6 @@ final class ListStyle {
 
   const ListStyle(
       {this.commas = Commas.trailing,
-      this.splitCost = Cost.normal,
+      this.splitCost = 1,
       this.spaceWhenUnsplit = false});
 }
