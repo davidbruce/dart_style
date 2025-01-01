@@ -29,9 +29,19 @@ class Config {
     }
   }
 
+  String? findConfig(Directory dir) {
+    var filepath = '${dir.path}/dartstyle.yaml';
+    var exists = File(filepath).existsSync();
+    if (exists) { 
+      return dir.path; 
+    } else {
+      return findConfig(dir.parent);
+    }
+  }
+
   Config._init() {
     var configFile =
-        File('${Platform.environment['HOME'] ?? Platform.environment['USERPROFILE']}/dartstyle.yaml').readAsStringSync();
+        File('${findConfig(Directory.current) ?? Platform.environment['HOME'] ?? Platform.environment['USERPROFILE']}/dartstyle.yaml').readAsStringSync();
     var content = loadYamlDocument(configFile).contents as YamlMap;
     _cost = content['Cost'] as YamlMap;
     _indent = content['Indent'] as YamlMap;
